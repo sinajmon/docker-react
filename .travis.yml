@@ -6,7 +6,7 @@ services:
 before_install:
   - docker build -t dockerdemo -f Dockerfile.dev .
 script:
-  - docker run  dockerdemo npm run test -- --coverage
+  - docker run -e CI=true dockerdemo npm run test -- --coverage
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
